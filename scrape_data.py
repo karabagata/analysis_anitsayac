@@ -71,7 +71,7 @@ def main():
         ids = [int(line.strip()) for line in f if line.strip()]
     
     # Limit to first 10 IDs for testing
-    ids = ids[1000:2000]
+    ids = ids[5000:]
     
     print(f"Scraping {len(ids)} pages...")
     
@@ -79,7 +79,7 @@ def main():
     failed_ids = []
     
     # Open CSV for writing
-    with open('scraped_data_1000_2000.csv', 'w', newline='', encoding='utf-8') as csvfile:
+    with open('scraped_data_after_5000.csv', 'w', newline='', encoding='utf-8') as csvfile:
         fieldnames = ['id', 'ad_soyad', 'il_ilce', 'tarih', 'neden_olduruldu', 
                       'kim_tarafindan', 'korunma_talebi', 'oldurulme_sekli', 
                       'failin_durumu', 'kaynak']
@@ -106,7 +106,7 @@ def main():
                 f.write(f"{id_}\n")
         print(f"\n{len(failed_ids)} failed IDs saved to failed_ids.txt")
     
-    print(f"Done! Data saved to scraped_data.csv ({len(ids) - len(failed_ids)} successful, {len(failed_ids)} failed)")
+    print(f"Done! Data saved to scraped_data_after_5000.csv ({len(ids) - len(failed_ids)} successful, {len(failed_ids)} failed)")
 
 if __name__ == "__main__":
     main()
